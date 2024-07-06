@@ -4,5 +4,4 @@
 - 7/13 진행자: 이재원.
 - 7/20 진행자: 제은찬.
 
-참고자료:
-![파이썬 코딩 무료 강의 (기본편) - 6시간 뒤면 여러분도 개발자가 될 수 있어요 [나도코딩]](https://youtu.be/kWiCuklohdY?si=NSQnqfjjirc_0L6-)
+참고자료: [파이썬 코딩 무료 강의 (기본편) - 6시간 뒤면 여러분도 개발자가 될 수 있어요 [나도코딩]](https://youtu.be/kWiCuklohdY?si=NSQnqfjjirc_0L6-)
