@@ -420,10 +420,10 @@ nums = [1, 2, 3, 4, 5]
 nums_plus_100 = [i + 100 for i in nums]
 print(nums_plus_100)  # [101, 102, 103, 104, 105]
 
-names = ["Iron man", "Thor", "I am groot"]
+names = ["Jacob Collier", "Quincy Jones", "Michael Jackson"]
 
 name_lengths = [len(i) for i in names]
-print(name_lengths)  # [8, 4, 10]
+print(name_lengths)
 
 name_uppers = [i.upper() for i in names]
 print(name_uppers)
