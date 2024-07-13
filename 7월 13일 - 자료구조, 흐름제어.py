@@ -142,7 +142,7 @@ print(multiple_type_dictionary[4.6])
 # ### Quiz 1
 #
 # ```
-# me = { 'name': 'sangzin', 'attack': 30, 'defense': 15 }
+# me = { 'name': 'jaewon', 'attack': 30, 'defense': 15 }
 # enemy = { 'name': 'slime', 'attack': 20, 'defense': 10 }
 # ```
 #
