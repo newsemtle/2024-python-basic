@@ -1,0 +1,116 @@
+# 8-1. 표준 입력 : input() 함수를 통해 사용자로부터 데이터를 받는 과정
+
+# input() : 괄호 안의 내용을 print -> 사용자로부터 내용 입력받음 -> 입력값은 "문자열"로 반환됨.
+
+name = input("이름을 입력하세요")
+print(name + "님, 안녕하세요!")
+
+# 8-2 표준 출력 : 프로그램의 결과를 화면에 출력하는 과정
+
+# print() : 괄호 안의 내용을 화면에 출력함.
+
+# print()에 사용되는 파라미터
+
+# 1) sep : 변수 사이에 들어갈 문자 지정 / end : 출력값 끝에 들어갈 문자 지정(기본은 \n)
+
+print("셈틀", "인제대")
+print("셈틀", "인제대", sep = "그리고")
+print("인제대", end = "에서 ")
+print("밥을", "먹는다")
+
+# 2) 문자열 포맷팅 : 1강 참고.
+
+# 3) zfill : 지정 길이만큼 0을 채워줌.  
+# ljust(길이, 문자) : 지정 길이만큼 문자를 채워줌. 기존 문자열은 좌로 정렬됨.
+# rjust(길이, 문자) : 지정 길이만큼 문자를 채워줌. 기존 문자열은 우로 정렬됨. 
+
+ex = "def"
+print(ex.zfill(4))
+print(ex.rjust(5))
+print(ex.ljust(5, "a"))
+
+# 4) .format() 기타 포맷팅
+print("{0: <10}".format(10)) #좌정렬
+print("{0: >10}".format(10)) #우정렬
+print("{0: ^10}".format(10)) #중앙정렬
+print("{0: <10}/{1}".format(2, 5))
+
+print("{:f}".format(5/3)) #소수점 출력
+print("{:.2f}".format(5/3)) #소수점 n번째까지 출력
+
+# 8-3 파일 입출력
+
+# 1) open() : 특정 파일을 만들거나, 내용을 덧붙이거나, 읽어올 수 있음.
+# open("파일이름", "사용방식", encoding = "utf8")
+# 사용방식 "w": 만들기(쓰기) / "a" : 덧붙이기 / "r" : 읽어오기
+
+food_file = open("foods.txt", "w", encoding = "utf8")
+print("돈까스: 10000원", file= food_file)
+print("냉면: 12000원", file= food_file)
+food_file.close()
+
+
+food_file2 = open("foods.txt", "a", encoding = "utf8")
+food_file2.write("스파게티: 9000원") #공백문자 추가해야 됨..
+food_file2.write("라멘: 9500원")
+food_file2.close()
+
+food_file3 = open("foods.txt", "r", encoding = "utf8")
+print(food_file3.read())
+food_file3.close()
+
+food_file4 = open("foods.txt", "r", encoding = "utf8")
+print(food_file4.readline()) #줄별로 읽기, 커서는 다음 줄로 이동함.
+print(food_file4.readline())
+food_file4.close()
+
+food_file5 = open("foods.txt", "r", encoding = "utf8")
+lines = food_file5.readlines() #list형식으로 저장함.
+for line in lines:
+  print(line, end = "")
+food_file5.close()
+
+# 8-4 : pickle 모듈
+# 객체 자체를 저장함. (텍스트로 변환 저장 X)
+
+import pickle as pk
+
+profile_f = open("profile.pk", "wb")
+profile = {"이름": "제은찬", "나이": 21, "취미": ["악기", "코딩"]}
+print(profile)
+pk.dump(profile, profile_f)
+profile_f.close()
+
+profile_f2 = open("profile.pk", "rb")
+profile2 = pk.load(profile_f2)
+print(profile2)
+profile_f2.close()
+
+# 8-5 with문
+
+# 파일을 열고, 닫는 것을 간결화함.
+# with open() as 변수:
+# 내용
+# 변수 = open()
+
+food_file = open("foods.txt", "r", encoding = "utf8")
+with open("foods.txt", "r", encoding = "utf8") as food_file:
+  print(food_file.read())
+
+# 9-1 클래스와 객체지향
+
+# 클래스란? 전반적인 "설계도"
+# 설계도의 기본 틀을 정해 놓고, 세부사항만 따로 지정해주면 여러 상품(=객체)을 만들 수 있다!
+
+class Car:
+    
+    def __init__ (self, make, model, year): # self는 필수, 뒤의 파라미터는 입력받을 속성 순서대로..
+
+      self.make = make
+      self.model = model
+      self.year = year # 입력받은 속성을 객체 내부에 저장함.
+      self.odometer_read = 0
+
+my_car = Car("Busan", "A1", 2024)
+
+print(my_car.year)
